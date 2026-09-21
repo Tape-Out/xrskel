@@ -22,6 +22,11 @@ templates:
     title: 外设 IP，不带寄存器图
     hint: 控制口不对外露的那类，如调试模块
     include: [base]
+  ip/blackbox:
+    group: ip
+    title: 别人的 RTL，黑盒接进来
+    hint: Verilog / SV / VHDL 的既成网表，不解析源码，只收一份形状声明
+    include: [base]
   lib:
     group: lib
     title: 库
@@ -32,5 +37,3 @@ templates:
     title: 装配
     hint: 有 instances，自己不带 RTL
     include: [base]
-
-# blackbox 等 spec 的 kind: foreign 落地再加

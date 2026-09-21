@@ -1,0 +1,66 @@
+name: {{name}}
+version: 0.1.0
+spec: '0.1'
+kind: ip
+lang: verilog
+identity:
+  slug: {{name}}-tapeout-verilog
+  display_name: {{Name}}
+  summary: One sentence saying what this block does.
+  category: peripheral
+  subcategories:
+  - {{name}}
+  ip_family: {{name}}
+  integration_profile: []
+  maturity: planned
+contract:
+  version: 1
+  ctrl:
+    shape: flat
+    aw: 8
+    dw: 32
+params:
+  dataBits:
+    type: int
+    default: 8
+    range:
+    - 5
+    - 8
+# 黑盒不解析源码，这份声明就是它的全部形状。对不上的地方只能在这里查出来
+emit:
+- kind: foreign
+  lang: verilog
+  top: {{name}}_top
+  rtl:
+  - hwsrc/{{name}}_top.v
+  # 仿真那份常带 initial 与延时，综合那份不能有，所以两份视图分开
+  sim:
+  - sim/{{name}}_model.v
+  params:
+    DATA_BITS: dataBits
+  clock:
+    port: clk
+  reset:
+    port: rst_n
+    active: low
+    sync: true
+  ports:
+  # 整组协议给 prefix，零散的线逐根 map
+  - endpoint: ctrl
+    kind: transaction
+    role: target
+    profile: apb4
+    prefix: p
+  - endpoint: pins
+    kind: physical
+    type: {{Name}}Pins
+    map:
+      tx: o_tx
+      rx: i_rx
+  - endpoint: irq
+    kind: event
+    role: source
+    map:
+      irq: o_irq
+  limits:
+  - 写下它做不到什么
