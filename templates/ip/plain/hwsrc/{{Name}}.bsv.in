@@ -1,0 +1,32 @@
+package {{Name}};
+
+typedef struct {
+  Bool invert;
+} {{Name}}Cfg;
+
+interface {{Name}}Pins;
+  (* always_ready, result = "tick" *) method Bit#(1) tick;
+endinterface
+
+interface {{Name}}Ifc#(numeric type period);
+  interface {{Name}}Pins pins;
+endinterface
+
+module mk{{Name}}#({{Name}}Cfg cfg)({{Name}}Ifc#(period));
+  Reg#(Bit#(32)) cnt <- mkReg(0);
+  Reg#(Bool)     lvl <- mkReg(False);
+
+  rule step;
+    if (cnt + 1 == fromInteger(valueOf(period))) begin
+      cnt <= 0;
+      lvl <= !lvl;
+    end else
+      cnt <= cnt + 1;
+  endrule
+
+  interface {{Name}}Pins pins;
+    method Bit#(1) tick = pack(cfg.invert ? !lvl : lvl);
+  endinterface
+endmodule
+
+endpackage

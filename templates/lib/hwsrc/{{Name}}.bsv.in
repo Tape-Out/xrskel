@@ -1,0 +1,15 @@
+package {{Name}};
+
+// 库只贡献源码，不被例化，也不进地址图。这里是格雷码，换成你要的。
+export gray, ungray;
+
+function Bit#(n) gray(Bit#(n) v) = v ^ (v >> 1);
+
+function Bit#(n) ungray(Bit#(n) g);
+  Bit#(n) v = g;
+  for (Integer i = 1; i < valueOf(n); i = i * 2)
+    v = v ^ (v >> i);
+  return v;
+endfunction
+
+endpackage

@@ -1,0 +1,13 @@
+name: {{name}}
+version: 0.1.0
+spec: '0.1'
+kind: library
+lang: bsv
+identity:
+  slug: {{name}}-tapeout-bsv
+  display_name: {{Name}}
+  summary: One sentence saying what this library provides.
+  category: infrastructure
+  maturity: planned
+deps:
+  hwcore: ^0.1

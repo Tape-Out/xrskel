@@ -1,0 +1,17 @@
+# {{name}}
+
+One sentence saying what this assembly is for.
+
+![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MulanPSL--2.0-blue)
+
+Part of the [Tape-Out]({{org}}) IP library, assembled by [`xirang`]({{org}}/xirang).
+
+## Status
+
+Planned. An assembly carries no RTL of its own: it lists instances, gives each one an
+address, and `xirang` generates the top level and the address map. The skeleton holds a
+single 8-pin GPIO reached over the external APB4 port. Replace it.
+
+## License
+
+Mulan PSL v2.

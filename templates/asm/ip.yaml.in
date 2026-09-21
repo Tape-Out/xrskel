@@ -1,0 +1,22 @@
+name: {{name}}
+version: 0.1.0
+spec: '0.1'
+identity:
+  slug: {{name}}-tapeout
+  display_name: {{Name}}
+  summary: One sentence saying what this assembly is for.
+  category: soc
+  maturity: planned
+bus: apb4
+instances:
+- name: gpio0
+  of: gpio
+  with:
+    numPins: 8
+    irq: false
+    bidir: false
+  addr: 0x10000000
+deps:
+  hwcore: ^0.1
+  amba: ^0.1
+  gpio: ^0.1

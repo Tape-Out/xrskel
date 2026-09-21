@@ -1,0 +1,16 @@
+# {{name}}
+
+One sentence saying what this library provides.
+
+![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-Apache--2.0-blue)
+
+Part of the [Tape-Out]({{org}}) IP library, assembled by [`xirang`]({{org}}/xirang).
+
+## Status
+
+Planned. A library contributes source only: no contract, no knobs, no address, never
+instantiated. The skeleton provides Gray coding. Replace it.
+
+## License
+
+Apache License 2.0.

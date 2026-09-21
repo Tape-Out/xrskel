@@ -1,0 +1,25 @@
+# {{name}}
+
+One sentence saying what this block does.
+
+![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MulanPSL--2.0-blue)
+
+Part of the [Tape-Out]({{org}}) IP library: Bluespec IP over the bus-neutral contracts in
+[`hwcore`]({{org}}/hwcore), assembled by [`xirang`]({{org}}/xirang).
+
+## Status
+
+Planned. `contract.ctrl.shape` is `none`, so this block is not a bus slave and has no
+register map: software reaches it through another block, or it is driven from pins only.
+The skeleton toggles an output every `period` cycles. Replace it.
+
+## Parameters
+
+| Parameter | Range | Meaning |
+| :--: | :--: | :-- |
+| `period` | 2 to 1024 | cycles between output toggles |
+| `invert` | bool | invert the output level |
+
+## License
+
+Mulan PSL v2.

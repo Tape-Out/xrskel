@@ -1,0 +1,45 @@
+name: {{name}}
+version: 0.1.0
+spec: '0.1'
+kind: ip
+lang: bsv
+identity:
+  slug: {{name}}-tapeout-bsv
+  display_name: {{Name}}
+  summary: One sentence saying what this block does.
+  category: peripheral
+  subcategories:
+  - {{name}}
+  ip_family: {{name}}
+  integration_profile: []
+  maturity: planned
+contract:
+  version: 1
+  ctrl:
+    # 不是总线从设备：控制口不对外露，所以没有寄存器图
+    shape: none
+    aw: 8
+    dw: 32
+params:
+  period:
+    type: int
+    default: 4
+    range:
+    - 2
+    - 1024
+    desc: cycles between output toggles
+features:
+  invert:
+    type: bool
+    default: false
+emit:
+- kind: bsv
+  package: {{Name}}
+  module: mk{{Name}}
+  config_type: {{Name}}Cfg
+  interface: {{Name}}Ifc
+  pins:
+  - name: pins
+    type: {{Name}}Pins
+deps:
+  hwcore: ^0.1
