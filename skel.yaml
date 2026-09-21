@@ -1,42 +1,36 @@
 xrskel: 1
 
-# 落盘规矩
 rules:
-  # 文件名以 .in 结尾的，落盘时脱掉后缀。给的是那些「叫这个名字就会被当真」的文件：
-  # ip.yaml 会让模板目录被发现成包，mk*.py 会被门禁当测试台逐个跑。
+  # .in 脱后缀：叫 ip.yaml 就会被发现成包，叫 mk*.py 就会被当测试台跑
   suffix: .in
-  # 路径里以 dot. 开头的那一段，落盘时还原成 . 。dotfile 进 wheel 会丢，而且
-  # 模板仓自己不该被组织的 ip.yml 触发。
+  # dot. 还原成 .：dotfile 进 wheel 会丢，真 .github 会触发组织门禁
   dotted: dot.
-  # 占位符只认 {{…}}，且前面不是 $ ——GitHub Actions 的 ${{ }} 不是占位符。
+  # 前面带 $ 的不算——那是 GitHub Actions 的 ${{ }}
   placeholders: [name, Name, NAME, org, year]
 
 includes:
-  base:   common/base      # .gitignore 与 .github/
-  mulan:  common/mulan     # LICENSE，给 IP 与装配
-  apache: common/apache    # LICENSE，给库
+  base: common/base
 
 templates:
   ip/regmap:
     group: ip
     title: 外设 IP，带寄存器图
     hint: 大多数外设走这条：软件经总线读写寄存器
-    include: [base, mulan]
+    include: [base]
   ip/plain:
     group: ip
     title: 外设 IP，不带寄存器图
     hint: 控制口不对外露的那类，如调试模块
-    include: [base, mulan]
+    include: [base]
   lib:
     group: lib
     title: 库
     hint: 只贡献源码，不被例化，没有旋钮也没有地址
-    include: [base, apache]
+    include: [base]
   asm:
     group: asm
     title: 装配
     hint: 有 instances，自己不带 RTL
-    include: [base, mulan]
+    include: [base]
 
-# blackbox（外语言黑盒）等 spec 的 kind: foreign 落地再加，
-# 现在加会生成一份 lint 不过的清单。
+# blackbox 等 spec 的 kind: foreign 落地再加

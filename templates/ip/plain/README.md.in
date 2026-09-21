@@ -2,7 +2,7 @@
 
 One sentence saying what this block does.
 
-![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MulanPSL--2.0-blue)
+![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0%20OR%20MulanPSL--2.0-blue)
 
 Part of the [Tape-Out]({{org}}) IP library: Bluespec IP over the bus-neutral contracts in
 [`hwcore`]({{org}}/hwcore), assembled by [`xirang`]({{org}}/xirang).
@@ -22,4 +22,4 @@ The skeleton toggles an output every `period` cycles. Replace it.
 
 ## License
 
-Mulan PSL v2.
+SPDX-License-Identifier: MIT OR Apache-2.0 OR MulanPSL-2.0

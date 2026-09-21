@@ -2,7 +2,7 @@
 
 One sentence saying what this assembly is for.
 
-![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MulanPSL--2.0-blue)
+![maturity](https://img.shields.io/badge/maturity-planned-lightgrey) ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0%20OR%20MulanPSL--2.0-blue)
 
 Part of the [Tape-Out]({{org}}) IP library, assembled by [`xirang`]({{org}}/xirang).
 
@@ -14,4 +14,4 @@ single 8-pin GPIO reached over the external APB4 port. Replace it.
 
 ## License
 
-Mulan PSL v2.
+SPDX-License-Identifier: MIT OR Apache-2.0 OR MulanPSL-2.0
